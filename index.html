@@ -1,11 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bn">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1.0">
-  <title>MD SOFIKUL ISLAM</title>
-  <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MD SOFIKUL ISLAM</title>
+        <style>
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -193,27 +192,22 @@
             color: red;
             font-weight: bold;
         }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="logo"><img src=
-    "https://firebasestorage.googleapis.com/v0/b/loan-info-bl-sim.appspot.com/o/ksjs.png?alt=media&token=d53ede9c-8856-4700-aa17-335631b2b508"
-    alt="Logo"></div>
-    <h2>Loan Info By MD SOFIKUL ISLAM</h2>
-    <div class="separator"></div><br>
-    <form id="checkForm" name="checkForm">
-      <input type="text" id="phoneNumber" name="number"
-      placeholder="" required=""> <label for="phoneNumber">Enter You're Number
-      019XXXXXXXX</label> <button type="submit">View
-      History</button>
-    </form>
-    <div id="response"></div>
-  </div>
-  <div class="overlay hidden" id="overlay">
-    <div class="spinner"></div>
-  </div>
-  <script>
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="logo"><img src="https://firebasestorage.googleapis.com/v0/b/loan-info-bl-sim.appspot.com/o/ksjs.png?alt=media&token=d53ede9c-8856-4700-aa17-335631b2b508" alt="Logo">
+            </div>
+            <h2>Loan Info By MD SOFIKUL ISLAM</h2>
+            <div class="separator"></div> <br>
+            <form id="checkForm"><input type="text" id="phoneNumber" name="number" placeholder=" " required> <label for="phoneNumber">নম্বর: 019XXXXXXXX</label> <button type="submit">View History</button>
+            </form>
+            <div id="response"></div>
+        </div>
+        <div class="overlay hidden" id="overlay">
+            <div class="spinner"></div>
+        </div>
+        <script>
         function showMessage(message, isError = false) {
             const responseDiv = document.getElementById('response');
             responseDiv.innerHTML = `<div class="${isError ? 'error' : ''}">${message}</div>`;
@@ -234,7 +228,7 @@
 
             
             if (!/^019/.test(phoneNumber)) {
-                showMessage('рждрзНрж░рзБржЯрж┐: ржПржЯрж┐ ржмрж╛ржВрж▓рж╛рж▓рж┐ржВржХ ржиржорзНржмрж░ ржиржпрж╝ред', true);
+                showMessage('ত্রুটি: এটি বাংলালিংক নম্বর নয়।', true);
                 return;
             }
 
@@ -251,38 +245,38 @@
 
                  
                     if (loanInfo.id === undefined || loanInfo.msisdn === undefined || loanInfo.due_loan === undefined || loanInfo.expires_in === undefined) {
-                        showMessage('Not:ржПржЗ ржирж╛ржорзНржмрж╛рж░рзЗ рж▓рзЛржи ржирзЗржУржпрж╝рж╛ рж╣ржпрж╝ржирж┐редЁЯТ░', true);
+                        showMessage('Not:এই নাম্বারে লোন নেওয়া হয়নি।💰', true);
                     } else {
                         const infoHtml = `
                             <div class="row">
-                                <div class="col label">ржЖржЗржбрж┐:</div>
+                                <div class="col label">আইডি:</div>
                                 <div class="col">${loanInfo.id}</div>
                             </div>
                             <div class="row">
-                                <div class="col label">ржлрзЛржи ржиржорзНржмрж░:</div>
+                                <div class="col label">ফোন নম্বর:</div>
                                 <div class="col">${loanInfo.msisdn}</div>
                             </div>
                             <div class="row">
-                                <div class="col label">ржмржХрзЗрзЯрж╛ рж▓рзЛржи:</div>
-                                <div class="col">${loanInfo.due_loan} ржЯрж╛ржХрж╛</div>
+                                <div class="col label">বকেয়া লোন:</div>
+                                <div class="col">${loanInfo.due_loan} টাকা</div>
                                                             </div>
                                                             <div class="row">
-                                <div class="col label">ржорзЗрзЯрж╛ржж рж╢рзЗрж╖рзЗрж░ рждрж╛рж░рж┐ржЦ:</div>
+                                <div class="col label">মেয়াদ শেষের তারিখ:</div>
                                 <div class="col">${loanInfo.expires_in}</div>
                                                             </div>
                                                         `;
                                                         document.getElementById('response').innerHTML = infoHtml;
                                                     }
                                                 } else {
-                                                    showMessage('рждрзНрж░рзБржЯрж┐: рждржерзНржп ржкрзНрж░ржжрж╛ржирзЗ рж╕ржорж╕рзНржпрж╛ рж╣ржпрж╝рзЗржЫрзЗред', true);
+                                                    showMessage('ত্রুটি: তথ্য প্রদানে সমস্যা হয়েছে।', true);
                                                 }
                                             })
                                             .catch(error => {
                                                 overlay.classList.add('hidden');
-                                                showMessage('рждрзНрж░рзБржЯрж┐: рж╕рж╛рж░рзНржнрж╛рж░рзЗрж░ рж╕ржорж╕рзНржпрж╛ рж░ржпрж╝рзЗржЫрзЗ, ржХрж┐ржЫрзБржХрзНрж╖ржг ржкрж░ ржЖржмрж╛рж░ ржЪрзЗрж╖рзНржЯрж╛ ржХрж░рзБржиред', true);
+                                                showMessage('ত্রুটি: সার্ভারের সমস্যা রয়েছে, কিছুক্ষণ পর আবার চেষ্টা করুন।', true);
                                                 console.error('Error:', error);
                                             });
                                         });
-  </script>
-</body>
+                                   </script>
+    </body>
 </html>
